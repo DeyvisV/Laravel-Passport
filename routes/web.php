@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/facebook', 'SocialAuthController@redirectFacebook');
+Route::get('/callback/facebook', 'SocialAuthController@callbackFacebook');
+Route::get('/google', 'SocialAuthController@redirectGoogle');
+Route::get('/callback/google', 'SocialAuthController@callbackGoogle');
+
 Route::get('/login', function (Request $request) {
     return response()->json([
         "error" => "invalid_credentials",
